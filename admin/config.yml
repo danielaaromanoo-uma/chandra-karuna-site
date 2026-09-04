@@ -1,0 +1,93 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Contact & Social Links"
+        name: "settings"
+        file: "content/settings.json"
+        fields:
+          - {label: "WhatsApp Number (as displayed on the site)", name: "whatsappDisplay", widget: "string"}
+          - {label: "WhatsApp Link (full wa.me URL, digits only, no + or spaces)", name: "whatsappLink", widget: "string"}
+          - {label: "Email Address", name: "email", widget: "string"}
+          - {label: "Instagram Profile URL", name: "instagramUrl", widget: "string"}
+          - {label: "Instagram Handle (as displayed on the site)", name: "instagramHandle", widget: "string"}
+
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - label: "Hero Section"
+        name: "homepage"
+        file: "content/homepage.json"
+        fields:
+          - {label: "Hero Headline (press Enter for a line break)", name: "heroHeadline", widget: "text"}
+          - {label: "Hero Tagline", name: "heroTagline", widget: "string"}
+
+  - name: "training200"
+    label: "200-Hour Training"
+    files:
+      - label: "Dates & Price"
+        name: "training-200hr"
+        file: "content/training-200hr.json"
+        fields:
+          - {label: "Regular Price", name: "price", widget: "string"}
+          - {label: "Early Bird Price", name: "earlyBirdPrice", widget: "string"}
+          - {label: "Costa Rica Dates (e.g. 10th – 17th January 2027)", name: "costaRicaDate", widget: "string"}
+          - {label: "Tuscany Dates", name: "tuscanyDate", widget: "string"}
+
+  - name: "trainingYin"
+    label: "Yin Yoga Training"
+    files:
+      - label: "Dates & Prices"
+        name: "training-yin"
+        file: "content/training-yin.json"
+        fields:
+          - label: "Costa Rica"
+            name: "costaRica"
+            widget: "object"
+            fields:
+              - {label: "Dates (one per line)", name: "dates", widget: "list"}
+              - {label: "Price", name: "price", widget: "string"}
+              - {label: "Early Bird Price", name: "earlyBird", widget: "string"}
+          - label: "Italy"
+            name: "italy"
+            widget: "object"
+            fields:
+              - {label: "Dates (one per line)", name: "dates", widget: "list"}
+              - {label: "Price", name: "price", widget: "string"}
+              - {label: "Early Bird Price", name: "earlyBird", widget: "string"}
+
+  - name: "retreats"
+    label: "Retreats"
+    files:
+      - label: "Sacred Pause Retreat"
+        name: "retreats"
+        file: "content/retreats.json"
+        fields:
+          - {label: "Date", name: "sacredPauseDate", widget: "string"}
+          - {label: "Location", name: "sacredPauseLocation", widget: "string"}
+
+  - name: "images"
+    label: "Photos"
+    files:
+      - label: "Site Photos"
+        name: "images"
+        file: "content/images.json"
+        fields:
+          - {label: "Logo (appears in every header & footer)", name: "logo", widget: "image"}
+          - {label: "Homepage Hero Video Poster (shown before video plays)", name: "heroPoster", widget: "image"}
+          - {label: "\"Our Approach\" Photo (Homepage)", name: "approachPhoto", widget: "image"}
+          - {label: "\"Take the First Step\" Photo (Homepage)", name: "ctaPhoto", widget: "image"}
+          - {label: "Team Photo — Daniela", name: "teamDaniela", widget: "image"}
+          - {label: "Team Photo — Dani", name: "teamDani", widget: "image"}
+          - {label: "200-Hour Hybrid Approach Photo", name: "hybridPhoto", widget: "image"}
+          - {label: "Yin Yoga Training Photo", name: "yinPhoto", widget: "image"}
+          - {label: "Sacred Pause Retreat Photo", name: "retreatSacredPause", widget: "image"}
+          - {label: "Conscious Mamahood Retreat Photo", name: "retreatMamahood", widget: "image"}
+          - {label: "Rooted in Presence Retreat Photo", name: "retreatRootedPresence", widget: "image"}

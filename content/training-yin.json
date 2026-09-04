@@ -1,0 +1,19 @@
+{
+  "costaRica": {
+    "dates": [
+      "20th \u2013 24th September 2026",
+      "22nd \u2013 26th October 2026",
+      "12th \u2013 16th November 2026",
+      "10th \u2013 14th December 2026"
+    ],
+    "price": "$1,100 private room \u00b7 $960 double room",
+    "earlyBird": "Early bird (booked 2 months prior): $990 private \u00b7 $860 double"
+  },
+  "italy": {
+    "dates": [
+      "9th \u2013 13th May 2027"
+    ],
+    "price": "\u20ac1,210 private room \u00b7 \u20ac1,050 double room",
+    "earlyBird": "Early bird (booked 3 months prior): \u20ac1,080 private \u00b7 \u20ac950 double"
+  }
+}
