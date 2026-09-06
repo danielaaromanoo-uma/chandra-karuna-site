@@ -121,10 +121,7 @@
       'img-team-daniela': data.teamDaniela,
       'img-team-dani': data.teamDani,
       'img-hybrid-photo': data.hybridPhoto,
-      'img-yin-photo': data.yinPhoto,
-      'img-retreat-sacred-pause': data.retreatSacredPause,
-      'img-retreat-mamahood': data.retreatMamahood,
-      'img-retreat-rooted-presence': data.retreatRootedPresence
+      'img-yin-photo': data.yinPhoto
     };
 
     Object.keys(map).forEach(function (id) {
@@ -140,12 +137,63 @@
     });
   });
 
-  // ---- Retreats ----
-  fetchJSON('content/retreats.json').then(function (data) {
-    if (!data) return;
-    var el = document.getElementById('retreat-sacred-pause-date');
-    if (el && data.sacredPauseDate) {
-      el.innerHTML = data.sacredPauseDate + '<br>' + data.sacredPauseLocation;
-    }
-  });
+  // ---- Retreats (fully dynamic: grid + detail sections) ----
+  function escapeHtml(str) {
+    var d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  var retreatsGrid = document.getElementById('retreats-grid');
+  var retreatsDetail = document.getElementById('retreats-detail-container');
+  if (retreatsGrid || retreatsDetail) {
+    fetchJSON('content/retreats-index.json').then(function (retreats) {
+      if (!retreats || !Array.isArray(retreats)) return;
+
+      if (retreatsGrid) {
+        retreatsGrid.innerHTML = retreats.map(function (r) {
+          var dateBlock = r.status === 'upcoming' && r.dateRange
+            ? '<div class="retreat-dates">' + escapeHtml(r.dateRange) + '<br>' + escapeHtml(r.location) + '</div>'
+            : '<div class="coming-soon">Coming soon.</div>';
+          var card =
+            '<div class="retreat-card-body">' +
+              '<h3>' + escapeHtml(r.title) + '</h3>' +
+              '<p class="blurb">' + escapeHtml(r.cardBlurb || r.location || '') + '</p>' +
+              dateBlock +
+            '</div>';
+          var img = '<img src="' + escapeHtml(r.image) + '" alt="' + escapeHtml(r.title) + '">';
+          if (r.hasDetail && r.slug) {
+            return '<a class="retreat-card" href="#' + escapeHtml(r.slug) + '" style="text-decoration:none;color:inherit;display:block;">' + img + card + '</a>';
+          }
+          return '<div class="retreat-card">' + img + card + '</div>';
+        }).join('');
+      }
+
+      if (retreatsDetail) {
+        retreatsDetail.innerHTML = retreats.filter(function (r) { return r.hasDetail; }).map(function (r) {
+          var bodyHtml = (r.body || []).map(function (p) { return '<p>' + escapeHtml(p) + '</p>'; }).join('');
+          var offeringsHtml = (r.offerings && r.offerings.length)
+            ? '<div class="offerings-box">' + r.offerings.map(function (o) { return '<p>' + escapeHtml(o) + '</p>'; }).join('') + '</div>'
+            : '';
+          var dateLoc = r.dateRange ? escapeHtml(r.dateRange) + ' &nbsp;|&nbsp; ' + escapeHtml(r.location) : escapeHtml(r.location);
+          return (
+            '<section class="bg-deep" id="' + escapeHtml(r.slug) + '">' +
+              '<div class="wrap">' +
+                '<div class="retreat-detail-head">' +
+                  '<span class="eyebrow">' + escapeHtml(r.eyebrow || r.title) + '</span>' +
+                  '<span class="retreat-dates-loc">' + dateLoc + '</span>' +
+                '</div>' +
+                (r.tagline ? '<p class="retreat-tagline">' + escapeHtml(r.tagline) + '</p>' : '') +
+                '<div class="retreat-body">' + bodyHtml + '</div>' +
+                offeringsHtml +
+                '<div class="detail-cta" style="margin-top:36px;">' +
+                  '<a href="contact.html" class="btn solid">Book Your Intro Call</a>' +
+                '</div>' +
+              '</div>' +
+            '</section>'
+          );
+        }).join('');
+      }
+    });
+  }
 })();

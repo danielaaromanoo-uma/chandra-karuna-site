@@ -446,64 +446,14 @@
   <div class="wrap center" style="margin-bottom:8px;">
     <span class="eyebrow">Upcoming Retreats</span>
   </div>
-  <div class="wrap retreat-grid">
-    <div class="retreat-card">
-      <img id="img-retreat-sacred-pause" src="images/retreat-sacred-pause.jpg" alt="Two women practicing yoga on a mountain overlook for the Sacred Pause Retreat">
-      <div class="retreat-card-body">
-        <h3>Sacred Pause Yoga Retreat</h3>
-        <p class="blurb">Regulate your rhythm, soothe your system, and find your center in midlife.</p>
-        <div class="retreat-dates" id="retreat-sacred-pause-date">8th – 11th July 2027<br>Vienna, Austria</div>
-      </div>
-    </div>
-    <div class="retreat-card">
-      <img id="img-retreat-mamahood" src="images/retreat-mamahood.jpg" alt="Ritual circle with tarot cards, roses, and candles for the Conscious Mamahood retreat">
-      <div class="retreat-card-body">
-        <h3>One Day Yoga Retreat for Conscious Mamahood</h3>
-        <p class="blurb">Online</p>
-        <div class="coming-soon">Coming soon.</div>
-      </div>
-    </div>
-    <div class="retreat-card">
-      <img id="img-retreat-rooted-presence" src="images/retreat-rooted-presence.jpg" alt="Hands holding cacao during a ceremony for the Rooted in Presence retreat">
-      <div class="retreat-card-body">
-        <h3>Rooted in Presence Yoga Retreat</h3>
-        <p class="blurb">Puerto Viejo de Talamanca, Costa Rica</p>
-        <div class="coming-soon">Coming soon.</div>
-      </div>
-    </div>
+  <div class="wrap retreat-grid" id="retreats-grid">
+    <!-- Rendered dynamically from content/retreats-index.json -->
   </div>
 </section>
 
-<section class="bg-deep">
-  <div class="wrap">
-    <div class="retreat-detail-head">
-      <span class="eyebrow">Sacred Pause Yoga Retreat</span>
-      <span class="retreat-dates-loc">8th – 11th July 2027 &nbsp;|&nbsp; Vienna, Austria</span>
-    </div>
-    <p class="retreat-tagline">A sanctuary for women over 40 to pause, breathe, and rewrite their next chapter.</p>
-
-    <div class="retreat-body">
-      <p>Regulate your rhythm, soothe your system, and find your center in midlife — honoring your body's transition into its wisest, most radiant chapter.</p>
-      <p>The transition through perimenopause and menopause is not a subtraction. It is an invitation to rewrite your story, listen to your body's changing rhythm, and step into your wisest, most radiant chapter yet.</p>
-      <p>Together, we will use the medicine of conscious breath to soothe your nervous system, targeted yoga to bring harmony to your body, and the sacred ritual of cacao to open our hearts.</p>
-      <p>Every meal will be thoughtfully prepared to nourish and support you from the inside out.</p>
-      <p>Give yourself permission to fully drop in. Rest when you need to. Cry if it flows. Laugh deeply. Pause completely.</p>
-    </div>
-
-    <div class="offerings-box">
-      <p>Daily yoga classes and conscious breath</p>
-      <p>Workshop: Introduction to Ayurveda for Midlife — discover how Ayurveda views the transition of menopause, and learn practical, daily rituals, herbs and dietary shifts to manage dryness, sleep disruption and temperature fluctuations</p>
-      <p>Workshop: Guided Journaling</p>
-      <p>Somatic movement for emotional release</p>
-      <p>Sacred Cacao Ceremony and Heart Sharing</p>
-      <p>Optional: Ayurvedic massages</p>
-    </div>
-
-    <div class="detail-cta" style="margin-top:36px;">
-      <a href="contact.html" class="btn solid">Book Your Intro Call</a>
-    </div>
-  </div>
-</section>
+<div id="retreats-detail-container">
+  <!-- Rendered dynamically from content/retreats-index.json for any retreat with hasDetail: true -->
+</div>
 
 <section class="contact-section" id="contact">
   <svg class="lotus-bg" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">

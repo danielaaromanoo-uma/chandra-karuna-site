@@ -65,13 +65,32 @@ collections:
 
   - name: "retreats"
     label: "Retreats"
-    files:
-      - label: "Sacred Pause Retreat"
-        name: "retreats"
-        file: "content/retreats.json"
-        fields:
-          - {label: "Date", name: "sacredPauseDate", widget: "string"}
-          - {label: "Location", name: "sacredPauseLocation", widget: "string"}
+    folder: "content/retreats"
+    create: true
+    slug: "{{fields.slug}}"
+    summary: "{{title}} — {{location}}"
+    fields:
+      - {label: "Retreat Name", name: "title", widget: "string"}
+      - {label: "Slug (short web-safe id, e.g. sacred-pause — no spaces, lowercase, used in the page link)", name: "slug", widget: "string", hint: "Only letters, numbers, and hyphens."}
+      - {label: "Location", name: "location", widget: "string"}
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: [{label: "Upcoming (has a date)", value: "upcoming"}, {label: "Coming soon (no date yet)", value: "coming-soon"}]
+        default: "coming-soon"
+      - {label: "Date Range (only shown when Status is Upcoming, e.g. 8th – 11th July 2027)", name: "dateRange", widget: "string", required: false}
+      - {label: "Photo", name: "image", widget: "image"}
+      - {label: "Card Teaser (short line shown on the retreat card in the list)", name: "cardBlurb", widget: "string"}
+      - label: "Add a full detail section for this retreat?"
+        name: "hasDetail"
+        widget: "boolean"
+        default: false
+        hint: "Turn this on to show a full description section further down the page, with its own paragraphs and an optional list of what's included."
+      - {label: "Detail Section Label (defaults to Retreat Name if left blank)", name: "eyebrow", widget: "string", required: false}
+      - {label: "Tagline (one short sentence under the title)", name: "tagline", widget: "string", required: false}
+      - {label: "Description (add one item per paragraph)", name: "body", widget: "list", required: false}
+      - {label: "What's Included (add one item per line)", name: "offerings", widget: "list", required: false}
+      - {label: "Order (lower numbers appear first in the list)", name: "order", widget: "number", default: 10}
 
   - name: "images"
     label: "Photos"
@@ -88,6 +107,3 @@ collections:
           - {label: "Team Photo — Dani", name: "teamDani", widget: "image"}
           - {label: "200-Hour Hybrid Approach Photo", name: "hybridPhoto", widget: "image"}
           - {label: "Yin Yoga Training Photo", name: "yinPhoto", widget: "image"}
-          - {label: "Sacred Pause Retreat Photo", name: "retreatSacredPause", widget: "image"}
-          - {label: "Conscious Mamahood Retreat Photo", name: "retreatMamahood", widget: "image"}
-          - {label: "Rooted in Presence Retreat Photo", name: "retreatRootedPresence", widget: "image"}
