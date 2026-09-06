@@ -1,10 +1,10 @@
 backend:
   name: git-gateway
   branch: main
-
+ 
 media_folder: "images"
 public_folder: "/images"
-
+ 
 collections:
   - name: "settings"
     label: "Site Settings"
@@ -18,7 +18,7 @@ collections:
           - {label: "Email Address", name: "email", widget: "string"}
           - {label: "Instagram Profile URL", name: "instagramUrl", widget: "string"}
           - {label: "Instagram Handle (as displayed on the site)", name: "instagramHandle", widget: "string"}
-
+ 
   - name: "homepage"
     label: "Homepage"
     files:
@@ -28,7 +28,7 @@ collections:
         fields:
           - {label: "Hero Headline (press Enter for a line break)", name: "heroHeadline", widget: "text"}
           - {label: "Hero Tagline", name: "heroTagline", widget: "string"}
-
+ 
   - name: "training200"
     label: "200-Hour Training"
     files:
@@ -40,7 +40,7 @@ collections:
           - {label: "Early Bird Price", name: "earlyBirdPrice", widget: "string"}
           - {label: "Costa Rica Dates (e.g. 10th – 17th January 2027)", name: "costaRicaDate", widget: "string"}
           - {label: "Tuscany Dates", name: "tuscanyDate", widget: "string"}
-
+ 
   - name: "trainingYin"
     label: "Yin Yoga Training"
     files:
@@ -62,10 +62,12 @@ collections:
               - {label: "Dates (one per line)", name: "dates", widget: "list"}
               - {label: "Price", name: "price", widget: "string"}
               - {label: "Early Bird Price", name: "earlyBird", widget: "string"}
-
+ 
   - name: "retreats"
     label: "Retreats"
     folder: "content/retreats"
+    extension: "json"
+    format: "json"
     create: true
     slug: "{{fields.slug}}"
     summary: "{{title}} — {{location}}"
@@ -91,7 +93,7 @@ collections:
       - {label: "Description (add one item per paragraph)", name: "body", widget: "list", required: false}
       - {label: "What's Included (add one item per line)", name: "offerings", widget: "list", required: false}
       - {label: "Order (lower numbers appear first in the list)", name: "order", widget: "number", default: 10}
-
+ 
   - name: "images"
     label: "Photos"
     files:
