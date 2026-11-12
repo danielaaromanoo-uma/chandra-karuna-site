@@ -1,19 +1,16 @@
 {
   "costaRica": {
     "dates": [
-      "20th – 24th September 2026",
-      "22nd – 26th October 2026",
-      "12th – 16th November 2026",
-      "10th – 14th December 2026"
+      "all-year-round"
     ],
-    "price": "$1,100 private room · $960 double room",
-    "earlyBird": "Early bird (booked 2 months prior): $990 private · $860 double"
+    "price": "$850 private room ",
+    "earlyBird": "$750 (booked 3 months prior)"
   },
   "italy": {
     "dates": [
-      "9th – 13th May 2027"
+      "5th – 11th June 2027"
     ],
-    "price": "€1,300 private room · €1,100 double room",
-    "earlyBird": "Early bird (booked 3 months prior): €1,150 private · €1050 double"
+    "price": "€1,650 private room · €1,300 double room",
+    "earlyBird": "Early bird (booked 3 months prior): €1,450 private · €1100 double"
   }
 }
